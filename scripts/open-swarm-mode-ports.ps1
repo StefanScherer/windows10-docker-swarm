@@ -1,6 +1,6 @@
-# --Open TCP/UDP ports required by Swarm--
-# These are the firewall rules required by swarm mode (see https://docs.docker.com/engine/swarm/swarm-tutorial/#/open-protocols-and-ports-between-the-hosts)
-New-NetFirewallRule -DisplayName "Swarm TCP: Allow inbound on ports 2377,7946,4789" -Direction Inbound –LocalPort 2377,7946,4789 -Protocol TCP -Action Allow
-New-NetFirewallRule -DisplayName "Swarm TCP: Allow outbound on ports 2377,7946,4789" -Direction Outbound –LocalPort 2377,7946,4789 -Protocol TCP -Action Allow
-New-NetFirewallRule -DisplayName "Swarm UDP: Allow inbound on ports 7946,4789" -Direction Inbound –LocalPort 7946,4789 -Protocol UDP -Action Allow
-New-NetFirewallRule -DisplayName "Swarm UDP: Allow outbound on ports 7946,4789" -Direction Outbound –LocalPort 7946,4789 -Protocol UDP -Action Allow
+# https://docs.docker.com/engine/swarm/swarm-tutorial/#/open-ports-between-the-hosts
+& netsh advfirewall firewall add rule name="Docker swarm-mode cluster management TCP" dir=in action=allow protocol=TCP localport=2377
+& netsh advfirewall firewall add rule name="Docker swarm-mode node communication TCP" dir=in action=allow protocol=TCP localport=7946
+& netsh advfirewall firewall add rule name="Docker swarm-mode node communication UDP" dir=in action=allow protocol=UDP localport=7946
+& netsh advfirewall firewall add rule name="Docker swarm-mode overlay network TCP" dir=in action=allow protocol=TCP localport=4789
+& netsh advfirewall firewall add rule name="Docker swarm-mode overlay network UDP" dir=in action=allow protocol=UDP localport=4789
