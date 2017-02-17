@@ -47,11 +47,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "shell", path: "scripts/open-swarm-mode-ports.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/update-nightly-docker.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/set-experimental.ps1", privileged: false
-    config.vm.provision "shell", path: "scripts/install-KB123456.ps1", privileged: false
+    config.vm.provision "shell", path: "scripts/enable-autologon.ps1", privileged: false
     config.vm.provision "reload"
-    config.vm.provision "shell", path: "scripts/docker-swarm-init.ps1", privileged: false, args: "-ip #{subnet}.2"
+    config.vm.provision "shell", path: "scripts/install-KB123456.ps1", privileged: true, powershell_elevated_interactive: true
+    config.vm.provision "reload"
     config.vm.provision "shell", path: "scripts/install-chocolatey.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-googlechrome.ps1", privileged: false
+    config.vm.provision "shell", path: "scripts/docker-swarm-init.ps1", privileged: false, args: "-ip #{subnet}.2"
   end
 
   config.vm.define "sw-win-02" do |config|
