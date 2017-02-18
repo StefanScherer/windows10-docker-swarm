@@ -61,7 +61,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :private_network, ip: "#{subnet}.3", gateway: "#{subnet}.1"
     config.vm.provision "shell", path: "scripts/fix-second-network.ps1", privileged: false, args: "#{subnet}.3"
     config.vm.provision "shell", path: "scripts/open-swarm-mode-ports.ps1", privileged: false
+    config.vm.provision "shell", path: "scripts/update-nightly-docker.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/set-experimental.ps1", privileged: false
+    config.vm.provision "shell", path: "scripts/enable-autologon.ps1", privileged: false
+    config.vm.provision "reload"
+    config.vm.provision "shell", path: "scripts/install-KB123456.ps1", privileged: true, powershell_elevated_interactive: true
+    config.vm.provision "reload"
     config.vm.provision "shell", path: "scripts/docker-swarm-join.ps1", privileged: false, args: "-managerip #{subnet}.2 -ip #{subnet}.3"
   end
 
@@ -70,7 +75,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :private_network, ip: "#{subnet}.4", gateway: "#{subnet}.1"
     config.vm.provision "shell", path: "scripts/fix-second-network.ps1", privileged: false, args: "#{subnet}.4"
     config.vm.provision "shell", path: "scripts/open-swarm-mode-ports.ps1", privileged: false
+    config.vm.provision "shell", path: "scripts/update-nightly-docker.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/set-experimental.ps1", privileged: false
+    config.vm.provision "shell", path: "scripts/enable-autologon.ps1", privileged: false
+    config.vm.provision "reload"
+    config.vm.provision "shell", path: "scripts/install-KB123456.ps1", privileged: true, powershell_elevated_interactive: true
+    config.vm.provision "reload"
     config.vm.provision "shell", path: "scripts/docker-swarm-join.ps1", privileged: false, args: "-managerip #{subnet}.2 -ip #{subnet}.4"
   end
 end
