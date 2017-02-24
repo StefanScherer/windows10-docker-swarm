@@ -40,8 +40,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "shell", path: "scripts/open-docker-insecure-port.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/enable-autologon.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/add-docker-group.ps1", privileged: false
+    config.vm.provision "shell", path: "scripts/set-winrm-delay-autostart.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-container-feature.ps1", privileged: false
     config.vm.provision "reload"
+    config.vm.provision "shell", path: "scripts/set-winrm-autostart.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-docker.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/set-experimental.ps1", privileged: false
 #    config.vm.provision "shell", path: "scripts/update-nightly-docker.ps1", privileged: false
@@ -59,8 +61,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "shell", path: "scripts/open-swarm-mode-ports.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/enable-autologon.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/add-docker-group.ps1", privileged: false
+    config.vm.provision "shell", path: "scripts/set-winrm-delay-autostart.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-container-feature.ps1", privileged: false
     config.vm.provision "reload"
+    config.vm.provision "shell", path: "scripts/set-winrm-autostart.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-docker.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/set-experimental.ps1", privileged: false
 #    config.vm.provision "shell", path: "scripts/update-nightly-docker.ps1", privileged: false
@@ -76,8 +80,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "shell", path: "scripts/open-swarm-mode-ports.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/enable-autologon.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/add-docker-group.ps1", privileged: false
+    config.vm.provision "shell", path: "scripts/set-winrm-delay-autostart.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-container-feature.ps1", privileged: false
     config.vm.provision "reload"
+    config.vm.provision "shell", path: "scripts/set-winrm-autostart.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-docker.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/set-experimental.ps1", privileged: false
 #    config.vm.provision "shell", path: "scripts/update-nightly-docker.ps1", privileged: false
