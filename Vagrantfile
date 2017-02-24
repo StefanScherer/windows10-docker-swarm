@@ -66,6 +66,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.hostname = "sw-win-02"
     config.vm.network :private_network, ip: "#{subnet}.3", gateway: "#{subnet}.1"
     config.vm.provision "shell", path: "scripts/fix-second-network.ps1", privileged: false, args: "#{subnet}.3"
+    config.vm.provision "shell", path: "scripts/open-swarm-mode-ports.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/enable-autologon.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/add-docker-group.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-container-feature.ps1", privileged: false
@@ -82,6 +83,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.hostname = "sw-win-03"
     config.vm.network :private_network, ip: "#{subnet}.4", gateway: "#{subnet}.1"
     config.vm.provision "shell", path: "scripts/fix-second-network.ps1", privileged: false, args: "#{subnet}.4"
+    config.vm.provision "shell", path: "scripts/open-swarm-mode-ports.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/enable-autologon.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/add-docker-group.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-container-feature.ps1", privileged: false
