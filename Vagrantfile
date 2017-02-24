@@ -9,17 +9,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box          = "windows_10_15031"
   config.vm.communicator = "winrm"
 
-  config.vm.provider "virtualbox" do |v|
-    v.gui = true
-    v.customize ["modifyvm", :id, "--memory", 3072]
-    v.customize ["modifyvm", :id, "--cpus", 2]
-    v.customize ["modifyvm", :id, "--vram", 64]
-    v.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
-    v.customize ["modifyvm", :id, "--accelerate3d", "on"]
-    v.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
-    v.linked_clone = true if Vagrant::VERSION =~ /^1.8/
-  end
-
   ["vmware_fusion", "vmware_workstation"].each do |provider|
     config.vm.provider provider do |v, override|
       v.gui = true
@@ -27,6 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       v.vmx["numvcpus"] = "2"
       v.vmx["vhv.enable"] = "TRUE"
       v.enable_vmrun_ip_lookup = false
+      v.linked_clone = true
     end
   end
 
