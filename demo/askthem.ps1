@@ -1,4 +1,4 @@
 while ($true) {
-  C:\src\curl.exe http://whoami:8000
+  (Invoke-WebRequest -UseBasicParsing http://whoami:8000).Content
   Start-Sleep 1
 }

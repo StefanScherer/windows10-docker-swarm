@@ -1,4 +1,4 @@
-FROM stefanscherer/curl-windows:7.53.0
+FROM microsoft/nanoserver
+RUN sc.exe config dnscache start= disabled
 COPY askthem.ps1 askthem.ps1
-ENTRYPOINT []
 CMD ["powershell", "-file", "askthem.ps1"]
