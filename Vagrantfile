@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.vapp_prefix = "windows10-docker-swarm"
     v.ip_subnet = "#{subnet}.1/255.255.255.0" # our test subnet with fixed IP adresses for everyone
     override.vm.usable_port_range = 2200..2999
-    v.memory = 4096
+    v.memory = 8192
     v.cpus = 4
     v.catalog_name = "BASEBOX-TESTING"
     v.nested_hypervisor = true
