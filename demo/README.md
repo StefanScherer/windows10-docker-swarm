@@ -6,5 +6,7 @@ See blog post [Getting started with Docker Swarm-mode on Windows 10](https://ste
 ./create-network.ps1
 ./start-whoami.ps1
 ./start-askthem.ps1
-docker service logs askthem
+docker service logs askthem-default-dns
+docker service logs askthem-dnscache-disabled
+docker service logs askthem-ttl-5seconds
 ```
