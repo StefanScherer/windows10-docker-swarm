@@ -9,6 +9,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box          = "windows_10_15031"
   config.vm.communicator = "winrm"
 
+  config.vm.provider "hyperv" do |v|
+      # v.vmname = "windows1" # Not sure if hyperv provider sets vmname == hostname or not
+      v.cpus = 2
+      v.memory = 2048
+      v.maxmemory = 3072
+      v.differencing_disk = true
+  end
+
   ["vmware_fusion", "vmware_workstation"].each do |provider|
     config.vm.provider provider do |v, override|
       v.gui = true
