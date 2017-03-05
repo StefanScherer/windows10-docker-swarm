@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.require_version ">= 1.7.4"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box          = "windows_10_15031"
+  config.vm.box          = "windows_10_15042"
   config.vm.communicator = "winrm"
 
   ["vmware_fusion", "vmware_workstation"].each do |provider|
@@ -47,8 +47,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "shell", path: "scripts/install-docker.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/set-experimental.ps1", privileged: false
 #    config.vm.provision "shell", path: "scripts/update-nightly-docker.ps1", privileged: false
-#    config.vm.provision "shell", path: "scripts/install-KB123456.ps1", privileged: true, powershell_elevated_interactive: true
-#    config.vm.provision "reload"
     config.vm.provision "shell", path: "scripts/install-chocolatey.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-dockertools.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-googlechrome.ps1", privileged: false
@@ -69,8 +67,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "shell", path: "scripts/install-docker.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/set-experimental.ps1", privileged: false
 #    config.vm.provision "shell", path: "scripts/update-nightly-docker.ps1", privileged: false
-#    config.vm.provision "shell", path: "scripts/install-KB123456.ps1", privileged: true, powershell_elevated_interactive: true
-#    config.vm.provision "reload"
     config.vm.provision "shell", path: "scripts/install-chocolatey.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-dockertools.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/docker-swarm-join.ps1", privileged: false, args: "-managerip #{subnet}.2 -ip #{subnet}.3"
@@ -90,8 +86,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "shell", path: "scripts/install-docker.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/set-experimental.ps1", privileged: false
 #    config.vm.provision "shell", path: "scripts/update-nightly-docker.ps1", privileged: false
-#    config.vm.provision "shell", path: "scripts/install-KB123456.ps1", privileged: true, powershell_elevated_interactive: true
-#    config.vm.provision "reload"
     config.vm.provision "shell", path: "scripts/install-chocolatey.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/install-dockertools.ps1", privileged: false
     config.vm.provision "shell", path: "scripts/docker-swarm-join.ps1", privileged: false, args: "-managerip #{subnet}.2 -ip #{subnet}.3"
