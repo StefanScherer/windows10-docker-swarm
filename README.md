@@ -33,7 +33,7 @@ There are three VM's with the following internal network and IP addresses:
 | sw-win-02 | 192.168.36.3 | 3GB    |
 | sw-win-03 | 192.168.36.4 | 3GB    |
 
-Depending on your host's memory you can spin up one or more Windows Server VM's.
+Depending on your host's memory you can spin up one or more Windows 10 VM's.
 
 ## Swarm Manager
 
@@ -44,6 +44,10 @@ The `sw-win-01` is the Swarm manager.
 The `sw-win-02` and `sw-win-03` are Swarm workers.
 
 ![swarm-mode](images/swarm-mode.png)
+
+## Demo
+
+Have a look at the folder `demo` with some helper scripts to create a overlay network, a scaled service and a consumer trying to fetch data from this service using the overlay network.
 
 ## Example usage
 
