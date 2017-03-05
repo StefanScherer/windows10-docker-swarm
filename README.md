@@ -47,7 +47,7 @@ The `sw-win-02` and `sw-win-03` are Swarm workers.
 
 ## Demo
 
-Have a look at the folder `demo` with some helper scripts to create a overlay network, a scaled service and a consumer trying to fetch data from this service using the overlay network.
+Have a look at the folder [`demo`](https://github.com/StefanScherer/windows10-docker-swarm/tree/master/demo) with some helper scripts to create a overlay network, a scaled service and a consumer trying to fetch data from this service using the overlay network.
 
 ## Example usage
 
